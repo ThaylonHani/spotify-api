@@ -11,7 +11,7 @@ export async function redirectToAuthCodeFlow() {
   params.append("client_secret", clientSecret);
   params.append("response_type", "code");
   params.append("redirect_uri", "http://localhost:3000");
-  params.append("scope", "user-read-private user-read-email user-library-read user-follow-read user-read-currently-playing");
+  params.append("scope", "user-read-private user-read-email user-library-read user-follow-read user-read-currently-playing ");
   params.append("state", state);
 
   if (typeof window !== "undefined") {
@@ -32,11 +32,11 @@ function generateRandomString(length) {
 
 export async function getAccessToken(code) {
   const params = new URLSearchParams();
-  params.append("client_id", clientId);
-  // params.append("client_secret", clientSecret);
+  // params.append("client_id", clientId);
+  params.append("client_secret", clientSecret);
   params.append("grant_type", "refresh_token");
   params.append("refresh_token", refreshToken);
-  // params.append("code", code)
+  params.append("code", code)
   params.append("redirect_uri", "http://localhost:3000")
   
     const result = await fetch(`https://accounts.spotify.com/api/token`, {
@@ -46,7 +46,7 @@ export async function getAccessToken(code) {
         Authorization: 'Basic ' + (new Buffer.from(clientId + ':' + clientSecret).toString('base64'))
       },
       body: params,
-      cache: "reload"      
+      cache: "reload",
     }).then(res => res.json());
   return result;
 };

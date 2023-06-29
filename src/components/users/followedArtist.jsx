@@ -1,10 +1,10 @@
 export async function FollowedArtist({ token }) {
 
-  const artist = await fetch("https://api.spotify.com/v1/me/following?type=artist",{headers: {'Authorization': `Bearer ${token}`}}).then(res => res.json())
+  const artist = await fetch("https://api.spotify.com/v1/me/following?type=artist&limit=10",{headers: {'Authorization': `Bearer ${token}`}}).then(res => res.json())
   
   
   return (
-    <div className="flex flex-col w-full justify-center items-center  ">
+    <div className="flex flex-col w-full justify-center items-center ">
      
       {
         artist.artists.items.map((item) => {

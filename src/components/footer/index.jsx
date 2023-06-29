@@ -4,7 +4,7 @@ export async function Footer({ token }) {
 
   
   return (
-    <footer className="fixed bottom-0 w-full  bg-[var(--dark-red-1-hex)]  p-4">
+    <footer className=" w-full bg-[var(--dark-red-1-hex)]  p-2">
 
      <NowPlaying token={token} />
 

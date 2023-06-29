@@ -5,7 +5,7 @@ import { FollowedArtist } from "../users/followedArtist";
 
 export function HeaderContent({token}) {
   return (
-    <div className="my-8 overflow-auto">
+    <div className=" flex flex-col h-full overflow-auto gap-2 my-2">
       <SavedAlbums token={token} />
       <CurrentUserPlaylist token={token} />
       <UserSavedTracks token={token} />

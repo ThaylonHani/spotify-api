@@ -22,5 +22,9 @@
 
 body {
   background: linear-gradient(to bottom right  , var(--dark-red-2-hex) , var(--dark-red-3-hex)) ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
   color:var(--color-5-rgba)
 }
